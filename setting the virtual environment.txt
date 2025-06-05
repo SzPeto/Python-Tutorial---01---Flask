@@ -1,0 +1,6 @@
+.\.venv\Scripts\activate - pip will install everything here
+# Better to use with pip3 so the system installs the packages for Python3
+pip3 install Flask
+pip3 install Flask-SQLAlchemy
+pip freeze > requirements.txt - # it creates a txt file with versions of packages, so we will be able to recreate
+                                # the environment on other machines, so the program would run as it is intended
