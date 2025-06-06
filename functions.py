@@ -9,6 +9,7 @@ class Functions:
         self.first_log = True
         self.write_log("****************************************************************************************")
 
+    # Creating files and directories ****************************************************************************
     def create_dir(self, dir_name):
         try:
             if not os.path.exists(dir_name):
@@ -17,6 +18,7 @@ class Functions:
         except Exception as e:
             self.write_log(f"def create_dir : {e}")
 
+    # Logging ***************************************************************************************************
     def create_file(self, path_and_file):
 
         try:
