@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from functions import Functions
 
 
-# Master
+# Master ********************************************************************************************************
 functions = Functions()
 today = datetime.datetime.now().strftime("%Y-%m-%d")
 
@@ -21,10 +21,10 @@ def index():
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     if request.method == "POST":
         try:
-            description = request.form["description"]
-            category = request.form["category"]
-            price = float(request.form["price"])
-            date = request.form["date"]
+            description = request.form.get("description")
+            category = request.form.get("category")
+            price = float(request.form.get("price"))
+            date = request.form.get("date")
             print(f"POST request : {description}, {category}, {price}, {date}")
             functions.write_log(f"Main.py - def index - POST request successfull")
         except Exception as e:
@@ -34,7 +34,7 @@ def index():
 
     return render_template("index.html", today = today)
 
-# Data model for database
+# Data model for database ***************************************************************************************
 class DbData(db.Model):
     # You can't have the self parameter, since we are inheriting from SQLAlchemy model
     id = db.Column(db.Integer, primary_key = True)
