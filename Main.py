@@ -20,7 +20,6 @@ db = SQLAlchemy(app)
 # Creating routes to webpages ***********************************************************************************
 @app.route("/", methods = ["POST", "GET"])
 def index():
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
     if request.method == "POST":
         try:
             action = request.form.get("action")
@@ -34,15 +33,21 @@ def index():
                 db.session.commit()
                 functions.write_log(f"Main.py - def index - POST request successfull")
             elif action == "Delete selected":
-                selected = request.form.getlist("checked-entries") # Getlist return a list of selected items
-                if selected:
-                    for i in range(len(selected)):
-                        entry = DbData.query.get(int(selected[i]))
-                        db.session.delete(entry)
-                    db.session.commit()
+                try:
+                    selected = request.form.getlist("checked-entries") # Getlist return a list of selected items
+                    if selected:
+                        for i in range(len(selected)):
+                            entry = DbData.query.get(int(selected[i]))
+                            db.session.delete(entry)
+                        db.session.commit()
+                except Exception as e:
+                    functions.write_log(f"def index - Error while deleting selected : {e}")
             elif action == "Delete all":
-                DbData.query.delete()
-                db.session.commit()
+                try:
+                    DbData.query.delete()
+                    db.session.commit()
+                except Exception as e:
+                    functions.write_log(f"def index - Error while deleting all : {e}")
             elif action == "Refresh":
                 return redirect("/")
 
