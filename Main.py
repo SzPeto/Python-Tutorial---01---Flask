@@ -2,6 +2,8 @@ import datetime
 
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import redirect
+
 from functions import Functions
 
 
@@ -25,19 +27,28 @@ def index():
             category = request.form.get("category")
             price = float(request.form.get("price"))
             date = request.form.get("date")
-            print(f"POST request : {description}, {category}, {price}, {date}")
+            new_entry = DbData(description = description, category = category, price = price, date = date)
+            db.session.add(new_entry)
+            db.session.commit()
             functions.write_log(f"Main.py - def index - POST request successfull")
+            return redirect("/")
         except Exception as e:
             functions.write_log(f"Main.py - def index - Something went wrong in POST request : {e}")
-    elif request.method == "GET":
-        print("GET")
+            return f"Error : {e}"
+    else:
+        entries = DbData.query.order_by(DbData.date).all()
+        for i in range(len(entries)):
+            print(
+                f"{entries[i].id}, {entries[i].description}, {entries[i].category}, "
+                f"{entries[i].price}, {entries[i].date}"
+            )
 
-    return render_template("index.html", today = today)
+    return render_template("index.html", today = today, entries = entries)
 
 # Data model for database ***************************************************************************************
 class DbData(db.Model):
     # You can't have the self parameter, since we are inheriting from SQLAlchemy model
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     description = db.Column(db.String(100), nullable = False) # NULL in SQL
     category = db.Column(db.String(50))
     price = db.Column(db.Float)

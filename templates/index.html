@@ -8,6 +8,10 @@
     <p>This is a simple expense manager</p>
     <a href="https://github.com/szpeto" target="_blank">GitHub</a>
 
+    {% if entries | length < 1 %}
+    <h3>The table is empty, add entries here...</h3>
+
+    {% else %}
     <table>
         <tr>
             <th>id</th>
@@ -16,14 +20,17 @@
             <th>price</th>
             <th>date</th>
         </tr>
+        {% for entry in entries %}
         <tr>
-            <td>01</td>
-            <td>Abc</td>
-            <td>Groceries</td>
-            <td>11.11</td>
-            <td>2025-06-05</td>
+            <td>{{entry.id}}</td>
+            <td>{{entry.description}}</td>
+            <td>{{entry.category}}</td>
+            <td>{{entry.price}}</td>
+            <td>{{entry.date}}</td>
         </tr>
+        {% endfor %}
     </table>
+    {% endif %}
     <form method="post" action="/">
         <input type="text" name="description" id="description-inp" placeholder="Description"><br>
         <select name="category" id="category-inp">
