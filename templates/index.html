@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <title>Flask Tutorial with inheritance</title>
+    <title>Simple expense manager by Peter Szepesi</title>
 {% endblock %}
 {% block body %}
-    <h1>Flask Tutorial with inheritance</h1>
-    <p>This is a Flask tutorial to test the Flask</p>
+    <h1>Simple expense manager by Peter Szepesi</h1>
+    <p>This is a simple expense manager</p>
     <a href="https://github.com/szpeto" target="_blank">GitHub</a>
 
     <table>
@@ -24,8 +24,11 @@
             <td>2025-06-05</td>
         </tr>
     </table>
-    <form action="">
-        <input type="text" name="content" id="content">
+    <form method="post" action="/">
+        <input type="text" name="description" id="description-inp" placeholder="Description"><br>
+        <input type="text" name="category" id="category-inp" placeholder="Category"><br>
+        <input type="text" name="price" id="price-inp" placeholder="Price 0.00"><br>
+        <input type="text" name="date" id="date-inp" placeholder="Date YYYY-MM-DD" value="{{today}}"><br>
         <input type="submit" value="Add entry" id="btn_add">
     </form>
 {% endblock %}
