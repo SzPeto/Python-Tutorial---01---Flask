@@ -23,25 +23,35 @@ def index():
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     if request.method == "POST":
         try:
-            description = request.form.get("description")
-            category = request.form.get("category")
-            price = float(request.form.get("price"))
-            date = request.form.get("date")
-            new_entry = DbData(description = description, category = category, price = price, date = date)
-            db.session.add(new_entry)
-            db.session.commit()
-            functions.write_log(f"Main.py - def index - POST request successfull")
+            action = request.form.get("action")
+            if action == "Add entry":
+                description = request.form.get("description")
+                category = request.form.get("category")
+                price = float(request.form.get("price"))
+                date = request.form.get("date")
+                new_entry = DbData(description = description, category = category, price = price, date = date)
+                db.session.add(new_entry)
+                db.session.commit()
+                functions.write_log(f"Main.py - def index - POST request successfull")
+            elif action == "Delete selected":
+                selected = request.form.getlist("checked-entries") # Getlist return a list of selected items
+                if selected:
+                    for i in range(len(selected)):
+                        entry = DbData.query.get(int(selected[i]))
+                        db.session.delete(entry)
+                    db.session.commit()
+            elif action == "Delete all":
+                DbData.query.delete()
+                db.session.commit()
+            elif action == "Refresh":
+                return redirect("/")
+
             return redirect("/")
         except Exception as e:
             functions.write_log(f"Main.py - def index - Something went wrong in POST request : {e}")
             return f"Error : {e}"
     else:
-        entries = DbData.query.order_by(DbData.date).all()
-        for i in range(len(entries)):
-            print(
-                f"{entries[i].id}, {entries[i].description}, {entries[i].category}, "
-                f"{entries[i].price}, {entries[i].date}"
-            )
+        entries = DbData.query.order_by(DbData.id).all() # This returns a list of DbData instances
 
     return render_template("index.html", today = today, entries = entries)
 

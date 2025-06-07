@@ -12,26 +12,34 @@
     <h3>The table is empty, add entries here...</h3>
 
     {% else %}
-    <table>
-        <tr>
-            <th>id</th>
-            <th>description</th>
-            <th>category</th>
-            <th>price</th>
-            <th>date</th>
-        </tr>
-        {% for entry in entries %}
-        <tr>
-            <td>{{entry.id}}</td>
-            <td>{{entry.description}}</td>
-            <td>{{entry.category}}</td>
-            <td>{{entry.price}}</td>
-            <td>{{entry.date}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
     <form method="post" action="/">
+        <table>
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>description</th>
+                <th>category</th>
+                <th>price</th>
+                <th>date</th>
+            </tr>
+            {% for entry in entries %}
+            <tr>
+                <td>
+                    <input type="checkbox" name="checked-entries" value="{{entry.id}}">
+                </td>
+                <td>{{entry.id}}</td>
+                <td>{{entry.description}}</td>
+                <td>{{entry.category}}</td>
+                <td>{{entry.price}}</td>
+                <td>{{entry.date}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+        <button type="submit" name="action" value="Delete selected" id="btn_del-sel">Delete selected</button>
+        <!-- name/value = key/value -->
+        <button type="submit" name="action" value="Delete all" id="btn_del-all">Delete all</button>
+        <button type="submit" name="action" value="Refresh" id="btn_ref">Refresh</button><br><br>
         <input type="text" name="description" id="description-inp" placeholder="Description"><br>
         <select name="category" id="category-inp">
           <option value="Groceries">Groceries</option>
@@ -60,7 +68,7 @@
           <option value="Miscellaneous">Miscellaneous</option>
         </select><br>
         <input type="text" name="price" id="price-inp" placeholder="Price 0.00"><br>
-        <input type="text" name="date" id="date-inp" placeholder="Date YYYY-MM-DD" value="{{today}}"><br>
-        <input type="submit" value="Add entry" id="btn_add">
+        <input type="text" name="date" id="date-inp" placeholder="Date YYYY-MM-DD" value="{{today}}"><br><br>
+        <input type="submit" name="action" value="Add entry" id="btn_add">
     </form>
 {% endblock %}
