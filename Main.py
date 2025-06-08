@@ -2,6 +2,7 @@ import datetime
 
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy.session import Session
 from werkzeug.utils import redirect
 
 from functions import Functions
@@ -24,20 +25,22 @@ def index():
         try:
             action = request.form.get("action")
             if action == "Add entry":
-                description = request.form.get("description")
-                category = request.form.get("category")
-                price = float(request.form.get("price"))
-                date = request.form.get("date")
-                new_entry = DbData(description = description, category = category, price = price, date = date)
-                db.session.add(new_entry)
-                db.session.commit()
-                functions.write_log(f"Main.py - def index - POST request successfull")
+                try:
+                    description = request.form.get("description")
+                    category = request.form.get("category")
+                    price = float(request.form.get("price"))
+                    date = request.form.get("date")
+                    new_entry = DbData(description = description, category = category, price = price, date = date)
+                    db.session.add(new_entry)
+                    db.session.commit()
+                except Exception as e:
+                    functions.write_log(f"def index - Error while adding entry : {e}")
             elif action == "Delete selected":
                 try:
                     selected = request.form.getlist("checked-entries") # Getlist return a list of selected items
                     if selected:
                         for i in range(len(selected)):
-                            entry = DbData.query.get(int(selected[i]))
+                            entry = db.session.get(DbData, selected[i]) # It returns an instance of DbData
                             db.session.delete(entry)
                         db.session.commit()
                 except Exception as e:
