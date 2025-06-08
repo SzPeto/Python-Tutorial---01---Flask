@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1> Tnis is the title in head, it isn't visible to user </h1>
+    </head>
+    <body>
+        <!-- Headers *********************************************************************************** -->
+        <h1> This is a header, it can be up to h6 </h1>
+
+        <!-- Paragraph and preformatted text *********************************************************** -->
+        <p> This is a paragraph, regular text, with line break at the end </p><br>
+
+        <pre>
+            This is a pre formatted text, it responds to the style you write
+            This is a new line(without line break)
+
+            And this is a new line with empty line in front of it
+        </pre>
+
+        <!-- Images and URL anchors ******************************************************************* -->
+        <a href="URL comes here"> <!-- This is an anchor, for links, etc. -->
+            <img src="Here comes the relative or absolute path, or URL" <!-- you can add gifs too -->
+            alt="This is an alternative task for image, if the image doesn't show up, recommended to fill"
+            height="200"> <!-- The adjusted height of image, the width adjusts proportionally -->
+        </a>
+
+        <!-- Audio and video ************************************************************************** -->
+        <audio controls>
+            <source src="*.mp3" type="audio/mpeg"><!-- it can be different type -->
+        </audio>
+
+        <video width="750px" controls>
+            <source src="*.mp4" type="video/mp4"><!-- it can be different type -->
+        </video>
+
+        <!-- Favicons ********************************************************************************* -->
+        <!-- Creating a favicon - the link creates a relation of this code to an external source -->
+        <link rel="icon" type="image/jpg" href="path to icon">
+
+        <!-- Text formatting ************************************************************************** -->
+        <p>This is normal text</p>
+        <p>This is <b>bold</b> text</p>
+        <p>This is <i>italic</i> text</p>
+        <p>This is <u>underlined</u> text</p>
+        <p>This is <del>deleted</del> text</p>
+        <p>This is <big>big</big> text</p>
+        <p>This is <small>small</small> text</p>
+        <p>This is <sub>subscript</sub> text</p>
+        <p>This is <sup>superscript</sup> text</p>
+        <p>This is <tt>monospaced</tt> text</p>
+        <p>This is <mark style="background-color:lightgreen">marked</mark> text</p>
+
+        <!-- Div and span **************************************************************************** -->
+        <!-- <div> and <span> are generic containers used for grouping content mainly for styling purposes-->
+        <!-- <div> is a block-level container used to group larger sections or layout parts -->
+        <!-- <span> is an inline container used to style or mark small parts of text -->
+        <!-- Use <div> for structure, and <span> for styling inside lines of content -->
+        <!-- Span can be inside p, div must be outside -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span style="background-color:tomato;">Autem
+        libero illo quos sunt molestias quis ab exercitationem, aliquid dicta omnis. Veniam vero odit,
+        ipsam labore nobis adipisci quidem vel at?</span></p>
+
+        <div style="background-color:cyan;"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+        libero illo quos sunt molestias quis ab exercitationem, aliquid dicta omnis. Veniam vero odit,
+        ipsam labore nobis adipisci quidem vel at?</p></div>
+
+
+    </body>
+</html>
