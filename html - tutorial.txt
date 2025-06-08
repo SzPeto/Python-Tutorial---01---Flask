@@ -67,3 +67,112 @@
 
     </body>
 </html>
+
+MOST COMMON HTML ATTRIBUTES — What They Do
+
+    1. id=
+        - Uniquely identifies an element on the page.
+        - Useful for CSS styling, JavaScript, or linking to a section.
+        Example:
+            <div id="header">
+
+    2. class=
+        - Groups elements together for shared CSS styling or JS behavior.
+        Example:
+            <p class="error-text">
+
+    3. href=
+        - Used in <a> (anchor) tags to define the destination URL.
+        Example:
+            <a href="https://example.com">Visit</a>
+
+    4. src=
+        - Used in <img>, <script>, <iframe> to set the source file or URL.
+        Example:
+            <img src="image.jpg">
+
+    5. alt=
+        - Used in <img> to describe the image if it can’t be displayed (important for accessibility).
+        Example:
+            <img src="cat.jpg" alt="A sleeping cat">
+
+    6. title=
+        - Adds a tooltip (text that appears on hover).
+        Example:
+            <button title="Click to submit">Submit</button>
+
+    7. name=
+        - Used in form inputs to identify the field name (key sent to backend).
+        Example:
+            <input name="email">
+
+    8. value=
+        - Sets the default or submitted value for form elements.
+        - Sent as the value of the name= key to the backend, so as a dict : name/value pair
+        Example:
+            <input name="username" value="Peter">
+
+    9. placeholder=
+        - Shows grayed-out text inside input fields as a hint.
+        Example:
+            <input placeholder="Enter your name">
+
+    10. type=
+        - Defines the input type (text, password, email, submit, etc.).
+        Example:
+            <input type="password">
+
+    11. action=
+        - Tells a <form> where to send submitted data.
+        Example:
+            <form action="/submit">
+
+    12. method=
+        - Specifies how form data is sent: "GET" or "POST".
+        Example:
+            <form method="POST">
+
+    13. disabled=
+        - Disables a form field or button (can't be clicked or typed into).
+        Example:
+            <button disabled>Loading...</button>
+
+    14. readonly=
+        - Makes input visible but uneditable by the user.
+        Example:
+            <input value="123" readonly>
+
+    15. required=
+        - Forces user to fill in the input before submitting the form.
+        Example:
+            <input required>
+
+    16. checked=
+        - Sets a checkbox or radio input to be pre-selected.
+        Example:
+            <input type="checkbox" checked>
+
+    17. style=
+        - Adds inline CSS directly to the element.
+        Example:
+            <div style="color:red; background:black">
+
+    18. for=
+        - Used in <label> to connect to a specific input by its id.
+        Example:
+            <label for="email">Email:</label>
+
+    19. maxlength=
+        - Limits how many characters a user can type into an input.
+        Example:
+            <input maxlength="20">
+
+    20. tabindex=
+        - Sets keyboard tab order.
+        Example:
+            <input tabindex="1">
+
+    21. autocomplete=
+        - Controls browser autofill behavior.
+        Example:
+            <input autocomplete="off">
