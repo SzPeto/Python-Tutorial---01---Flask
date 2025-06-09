@@ -156,7 +156,6 @@
         <form>	For submitting user input
         <figure> + <figcaption>	For images with captions
         <time>	For marking up dates and times (helps with machine readability)
-
     </body>
 </html>
 
