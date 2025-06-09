@@ -22,6 +22,7 @@ db = SQLAlchemy(app)
 @app.route("/", methods = ["POST", "GET"])
 def index():
     if request.method == "POST":
+        print("posting")
         try:
             action = request.form.get("action")
             if action == "Add entry":

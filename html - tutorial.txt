@@ -64,6 +64,98 @@
         libero illo quos sunt molestias quis ab exercitationem, aliquid dicta omnis. Veniam vero odit,
         ipsam labore nobis adipisci quidem vel at?</p></div>
 
+        <!-- Lists *********************************************************************************** -->
+        <!-- Unordered List -->
+        <h4>Groceries</h4>
+        <ul><!-- ul - unordered list -->
+            <li>milk</li>
+            <li>eggs</li>
+            <li>bread</li>
+            <li>coffee supplies</li>
+            <ul>
+                <li>coffee beans</li>
+                <li>creamer</li>
+                <li>sugar</li>
+            </ul>
+        </ul>
+
+        <!-- Ordered List -->
+        <h4>To do list</h4>
+        <ol><!-- ol - ordered list -->
+            <li>eat breakfast</li>
+            <li>go to class</li>
+            <li>work</li>
+            <li><mark>WATCH THIS VIDEO</mark></li>
+        </ol>
+
+
+        <!-- Description List -->
+        <h4>Mythical creatures</h4>
+        <dl style="background-color:lightgreen; border:2px solid"><!-- dl - description list -->
+            <dt>dragon</dt><!-- dt - definition term -->
+            <dd>a mythical monster resembling a giant reptile, sometimes shown as having wings.</dd><!-- dd - definition description -->
+
+            <dt>phoenix</dt>
+            <dd>an immortal bird associated with Greek mythology that cyclically regenerates or is otherwise born again.</dd>
+
+            <dt>vampire</dt>
+            <dd>a mythical creature that subsists by feeding on the vital essence (generally in the form of blood) of the living.</dd>
+
+            <dt>werewolf</dt>
+            <dd>an individual that can shapeshift into a wolf.</dd>
+        </dl>
+
+        <!-- Text formatting *******************************************************************************-->
+        <p>This is normal text</p>
+        <p>This is <b>bold</b> text</p>
+        <p>This is <i>italic</i> text</p>
+        <p>This is <u>underlined</u> text</p>
+        <p>This is <del>deleted - crossed out</del> text</p>
+        <p>This is <big>big</big> text</p>
+        <p>This is <small>small</small> text</p>
+        <p>This is <sub>subscript</sub> text</p>
+        <p>This is <sup>superscript</sup> text</p>
+        <p>This is <tt>monospaced</tt> text</p>
+        <p>This is <mark style="background-color: rgb(115, 255, 115)">marked</mark> text</p>
+
+        <!-- Forms *****************************************************************************************-->
+        <!-- Username, password, email -->
+        <label for="username">username:</label>
+        <input type="text" id="username" placeholder="Spongebob" minlength="6"  maxlength="15" required><br>
+
+        <label for="password">password:</label>
+        <input type="password" id="password"><br>
+
+        <label for="email">email:</label>
+        <input type="email" id="email" placeholder="SSquarepants@gmail.com"><br>
+
+        <!-- Radio buttons - the name should be the same in order to put them in a group -->
+        <label for="Mr.">Mr.</label>
+        <input type="radio" id="Mr." value="Mr." name="title">
+        <label for="Ms.">Ms.</label>
+        <input type="radio" id="Ms." value="Ms." name="title">
+        <label for="PhD.">PhD.</label>
+        <input type="radio" id="PhD." value="PhD." name="title"><br>
+
+        <!-- Comments, text area -->
+        <label for="comment">comment:</label>
+        <textarea id="comment" rows="3" cols="25"></textarea><br>
+
+        <!-- File input -->
+        <label for="file">file:</label>
+        <input type="file" id="file" accept="image/png, image/jpeg"><br>
+
+        <!--  Semantics - HTML5  ************************************************************************-->
+        <header>	Top section of a page or section (logo, nav, title)
+        <nav>	Contains main site navigation links
+        <main>	The main unique content of a page (only one per page!)
+        <section>	Groups related content within a page (like a chapter)
+        <article>	Standalone content like a blog post, news story, or forum post
+        <aside>	Extra info like sidebars, ads, or tips — related but not core content
+        <footer>	Bottom part of page (author info, links, copyright)
+        <form>	For submitting user input
+        <figure> + <figcaption>	For images with captions
+        <time>	For marking up dates and times (helps with machine readability)
 
     </body>
 </html>

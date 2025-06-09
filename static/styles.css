@@ -1,6 +1,6 @@
 body {
     background-color: rgb(245, 245, 255);
-    font-family: Bahnschrift;
+    font-family: Segoe UI;
     text-align: center;
 }
 
@@ -14,7 +14,7 @@ table {
     margin: 20px auto;
     width: 80%;
     background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 th, td {
@@ -27,8 +27,44 @@ th {
     background-color: rgb(225, 225, 225);
 }
 
-#btn_add {
+button {
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(235, 235, 235));
+    border-radius: 4px;
+    padding: 6px 12px;
+    border: 1px solid rgb(144, 144, 144);
+    font-family: Segoe UI;
 }
 
-form {
+button:hover {
+    background: linear-gradient(to bottom, rgb(235, 235, 235), rgb(215, 215, 215));
+}
+
+button:active {
+    background: linear-gradient(to bottom, rgb(215, 215, 215), rgb(195, 195, 195));
+    border: 1px inset rgb(88, 88, 88);
+}
+
+input[type="text"] {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    width: 180px;
+}
+
+select {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    width: 210px;
+}
+
+#date-inp {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+footer {
+    text-align: left;
+    padding: 0px 12px;
 }
