@@ -71,7 +71,13 @@ def edit(entry_id):
         return f"Entry with id : {entry_id} not found"
 
     if request.method == "POST":
-        print("POST")
+        entry.description = request.form.get("description")
+        entry.category = request.form.get("category")
+        entry.price = request.form.get("price")
+        entry.date = request.form.get("date")
+        print(f"{entry.description}, {entry.category}, {entry.price}, {entry.date}")
+        db.session.commit()
+        return redirect("/")
 
 
     return render_template("edit.html", entry = entry)
