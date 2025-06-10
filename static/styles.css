@@ -32,7 +32,6 @@ button {
     border-radius: 4px;
     padding: 6px 12px;
     border: 1px solid rgb(144, 144, 144);
-    font-family: Segoe UI;
 }
 
 button:hover {
@@ -67,4 +66,17 @@ select {
 footer {
     text-align: left;
     padding: 0px 12px;
+}
+
+.edit-btn {
+  padding: 5px 10px;
+  background-color: rgb(76, 175, 80);
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background-color: rgb(69, 160, 73);
 }

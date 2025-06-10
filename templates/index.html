@@ -24,6 +24,7 @@
                     <th>category</th>
                     <th>price</th>
                     <th>date</th>
+                    <th>edit</th>
                 </tr>
                 {% for entry in entries %}
                 <tr>
@@ -35,6 +36,7 @@
                     <td>{{entry.category}}</td>
                     <td>{{entry.price}}</td>
                     <td>{{entry.date}}</td>
+                    <td><a href="/edit/{{ entry.id }}" class="edit-btn">Edit</a></td>
                 </tr>
                 {% endfor %}
             </table>

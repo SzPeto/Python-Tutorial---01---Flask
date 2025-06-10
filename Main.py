@@ -64,6 +64,19 @@ def index():
 
     return render_template("index.html", today = today, entries = entries)
 
+@app.route("/edit/<int:entry_id>", methods = ["POST", "GET"])
+def edit(entry_id):
+    entry = db.session.get(DbData, entry_id)
+    if not entry:
+        return f"Entry with id : {entry_id} not found"
+
+    if request.method == "POST":
+        print("POST")
+
+
+    return render_template("edit.html", entry = entry)
+
+
 # Data model for database ***************************************************************************************
 class DbData(db.Model):
     # You can't have the self parameter, since we are inheriting from SQLAlchemy model
