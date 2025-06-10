@@ -24,7 +24,6 @@ sort = "id"
 @app.route("/", methods = ["POST", "GET"])
 def index():
     if request.method == "POST":
-        print("posting")
         try:
             action = request.form.get("action")
             if action == "Add entry":
@@ -67,6 +66,7 @@ def index():
     else:
         entries = DbData.query.order_by(getattr(DbData, sort)).all() # This returns a list of DbData instances
 
+    # This is a GET request
     return render_template("index.html", today = today, entries = entries)
 
 @app.route("/edit/<int:entry_id>", methods = ["POST", "GET"])
@@ -80,7 +80,6 @@ def edit(entry_id):
         entry.category = request.form.get("category")
         entry.price = request.form.get("price")
         entry.date = request.form.get("date")
-        print(f"{entry.description}, {entry.category}, {entry.price}, {entry.date}")
         db.session.commit()
         return redirect("/")
 
