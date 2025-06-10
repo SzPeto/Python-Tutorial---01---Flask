@@ -18,6 +18,8 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db" # It has to be in root folder
 db = SQLAlchemy(app)
 
+sort = "id"
+
 # Creating routes to webpages ***********************************************************************************
 @app.route("/", methods = ["POST", "GET"])
 def index():
@@ -54,13 +56,16 @@ def index():
                     functions.write_log(f"def index - Error while deleting all : {e}")
             elif action == "Refresh":
                 return redirect("/")
+            elif action == "Sort":
+                global sort
+                sort = request.form.get("sort").lower()
 
             return redirect("/")
         except Exception as e:
             functions.write_log(f"Main.py - def index - Something went wrong in POST request : {e}")
             return f"Error : {e}"
     else:
-        entries = DbData.query.order_by(DbData.id).all() # This returns a list of DbData instances
+        entries = DbData.query.order_by(getattr(DbData, sort)).all() # This returns a list of DbData instances
 
     return render_template("index.html", today = today, entries = entries)
 

@@ -45,6 +45,15 @@
             <!-- name/value = key/value -->
             <button type="submit" name="action" value="Delete all" id="btn_del-all">Delete all</button>
             <button type="submit" name="action" value="Refresh" id="btn_ref">Refresh</button><br><br>
+            <label for="sort-inp">Sort by : </label>
+            <select name="sort" id="sort-inp">
+                <option value="Id">Id</option>
+                <option value="Description">Description</option>
+                <option value="Category">Category</option>
+                <option value="Price">Price</option>
+                <option value="Date">Date</option>
+            </select>
+            <button type="submit" name="action" value="Sort" id="btn-sort">Sort</button><br><br>
             <!-- required means the user must enter a value -->
             <label for="description-inp">Description : </label>
             <input type="text" name="description" id="description-inp" placeholder="Description"><br>
