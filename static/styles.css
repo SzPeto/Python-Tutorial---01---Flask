@@ -85,9 +85,23 @@ footer {
 .h-box-main {
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid rgb(200, 200, 200);
 }
 
-.v-box-left {
-    display: flex;
-    flex-direction: column;
+.grid-1 {
+    display: grid;
+    grid-template-columns: 150px 1fr; /*First column is 150px wide Second column takes up all the remaining space (fr stands for fraction of available space)*/
+    gap: 15px 20px; /* row gap, column gap */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 340px;
+    text-align: left;
+}
+
+#btn-add {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 200px;
 }
